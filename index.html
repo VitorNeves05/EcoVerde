@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Space+Grotesk:wght@300..700&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -28,24 +28,95 @@
     </header> 
 
     <section id="home">
-        <h1 class="titulo-principal">Produtos ecológicos e sustentáveis</h1>
-        <h2 class="subtitulo">Conectando Você ao Futuro Sustentável!</h2> <!-- Corrigido 'Class' para 'class' -->
+        <h1 class="titulo-principal">
+            Beleza que cuida de você e do Mundo
+        </h1>
+        <h2 class="subtitulo">Produtos ecológicos e sustentáveis</h2> <!-- Corrigido 'Class' para 'class' -->
+
+        <div class="video-container">
+            <video width="100%" autoplay loop muted>
+                <source src="videos/natural.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+        </div>
+    </section>
     </section>
 
     <section id="sobre">
-        <h2>Sobre Nós</h2>
-        <p>Somos uma loja dedicada a promover o consumo consciente.</p>
+        <h2 class="titulo-sobre">Sobre a EcoVerde</h2>
+    
+        <div class="sobre-conteudo">
+            <!-- Fotos dos donos -->
+            <div class="donos">
+                <div class="dono">
+                    <img src="imagens/Dona.jpg" alt="Dono 1" class="foto-dono">
+                    <h3 class="nome-dono">Maria Alvarenga</h3>
+                </div>
+                <div class="dono">
+                    <img src="imagens/Dono.jpg" alt="Dono 2" class="foto-dono">
+                    <h3 class="nome-dono">João de Paula</h3>
+                </div>
+            </div>
+    
+            <!-- Texto sobre a marca -->
+            <div class="texto-sobre">
+                <p>A EcoVerde nasceu do desejo de unir beleza e sustentabilidade. Fundada por João e Maria, dois apaixonads por cuidados naturais, a marca surgiu da ideia de criar produtos de beleza eficazes, feitos com ingredientes orgânicos e com o mínimo impacto ambiental. Em nossa jornada, buscamos oferecer o melhor da natureza, sem aditivos químicos, e respeitando o planeta em cada etapa.</p>
+                <p> A EcoVerde é mais que beleza – é um compromisso com um futuro mais consciente e sustentável.</p>
+            </div>
+        </div>
     </section>
 
     <section id="produtos">
         <h2>Nossos Produtos</h2>
-        <p>Confira nossa linha de produtos ecológicos.</p>
+        <div class="carousel">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-box">
+                    <img src="imagem1.jpg" alt="Produto 1">
+                    <h3>Produto 1</h3>
+                    <p>R$ 49,99</p>
+                </div>
+                <div class="product-box">
+                    <img src="imagem2.jpg" alt="Produto 2">
+                    <h3>Produto 2</h3>
+                    <p>R$ 59,99</p>
+                </div>
+                <div class="product-box">
+                    <img src="imagem3.jpg" alt="Produto 3">
+                    <h3>Produto 3</h3>
+                    <p>R$ 69,99</p>
+                </div>
+                <div class="product-box">
+                    <img src="imagem4.jpg" alt="Produto 4">
+                    <h3>Produto 4</h3>
+                    <p>R$ 79,99</p>
+                </div>
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
     </section>
 
     <section id="contato">
         <h2>Fale Conosco</h2>
         <p>Entre em contato para mais informações.</p>
     </section>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.product-box');
+            const totalSlides = slides.length;
+            
+            // Calcula o novo índice
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            
+            // Ajusta a posição do container de produtos
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.style.transform = `translateX(-${currentIndex * (slides[0].offsetWidth + 30)}px)`;
+        }
+    </script>
+
 
 </body>
 </html>
