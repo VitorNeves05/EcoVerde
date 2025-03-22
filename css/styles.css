@@ -28,19 +28,34 @@ header {
     z-index: 1000;
 }
 
+.video-container {
+    overflow: hidden; /* Oculta as bordas do vídeo */
+    width: 90%; /* Ajuste conforme necessário */
+    height: 550px; /* Define uma altura específica para o contêiner */
+    margin: 50px;
+}
+
+video {
+    width: 100%; /* O vídeo ocupará toda a largura do contêiner */
+    height: 100%; /* Ajusta a altura para preencher o contêiner */
+    object-fit: cover; /* Faz o vídeo cobrir todo o contêiner, cortando as bordas se necessário */
+    border-radius: 15px; /* Define o arredondamento das bordas */
+}
+
 .titulo-principal {
-    font-size: 3rem;
+    font-size: 50px;
     font-family: 'Major Mono Display', monospace;
-    font-weight: 600;
+    font-weight: 800;
     color: #181818;
-    text-align: center;
+    text-align: Center;
     margin-top: 70px; /* Pequeno espaço entre o topo e o título */
     margin-bottom: 20px;
 }
 .subtitulo {
-    font-family: 'Quicksand', sans-serif; /* Ou qualquer outra fonte */
-    font-size: 2rem;
-    color: #2e7d32;
+    font-family: 'Space Grotesk', sans-serif; /* Ou qualquer outra fonte */
+    font-size: 40px;
+    font-weight: 300;
+    color: #181818;
     text-align: center;
     margin-top: 10px;
 }
@@ -100,11 +115,170 @@ section {
 }
 
 #sobre {
-    background: #f8f8f8;
+    padding: 50px 20px;
+    background-image: url('imagens/fundo_Sobre.jpg'); /* Caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    color: white;
+    position: relative; /* Necessário para posicionar a sobreposição */
+
 }
 
+/* Camada de sobreposição escura */
+#sobre::before {
+    content: ""; /* Necessário para criar o elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 1; /* Coloca a sobreposição acima da imagem, mas abaixo do texto */
+}
+
+.sobre-conteudo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative; /* Necessário para o posicionamento da caixa branca */
+}
+
+.donos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.dono {
+    margin: 0 20px;
+    text-align: center;
+}
+
+.foto-dono {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Arredonda as bordas das imagens */
+    object-fit: cover; /* Ajusta a imagem para o tamanho da área sem distorcer */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar a foto */
+}
+
+.nome-dono {
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.texto-sobre {
+    background-color: rgba(255, 255, 255, 0.8); /* Caixa branca semi-transparente */
+    max-width: 800px;
+    padding: 30px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 20px;
+    text-align: justify;
+    border-radius: 15px; /* Borda arredondada na caixa de texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar a caixa de texto */
+}
+
+.titulo-sobre {
+    position: relative;
+    z-index: 3; /* Garante que o título fique acima da sobreposição */
+    font-size: 36px;
+    font-weight: 600;
+    font-family: 'Major Mono Display', monospace;
+    color: #fff; /* Título em branco para contraste com a imagem */
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
 #produtos {
-    background: #ffffff;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out; /* Efeito suave de transição */
+}
+
+.product-box {
+    width: 350px; /* Tamanho maior para os produtos */
+    margin: 0 30px; /* Aumentar o espaço entre os boxes */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    opacity: 0.8; /* Tornar os boxes um pouco transparentes para o efeito */
+    transform: scale(0.8); /* Efeito de diminuir os boxes que estão fora da vista */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Aumentar a escala do box que está no centro */
+.product-box.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.product-box img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-box h3 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.product-box p {
+    color: #666;
+    font-size: 18px;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Hover effect on the buttons */
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 #contato {
