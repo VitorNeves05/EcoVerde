@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:#f5f5f5;
+}
+
+/* Cabeçalho fixo */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color:#244b2a;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.titulo-principal {
+    font-size: 3rem;
+    font-family: 'Major Mono Display', monospace;
+    font-weight: 600;
+    color: #181818;
+    text-align: center;
+    margin-top: 70px; /* Pequeno espaço entre o topo e o título */
+    margin-bottom: 20px;
+}
+.subtitulo {
+    font-family: 'Quicksand', sans-serif; /* Ou qualquer outra fonte */
+    font-size: 2rem;
+    color: #2e7d32;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Logo */
+.logo a {
+    display: inline-block; /* Mantém o tamanho da imagem */
+}
+
+.logo img {
+    height: 60px; /* Ajuste conforme necessário */
+    width: auto;
+    transition: opacity 0.3s; /* Efeito suave no hover */
+}
+
+/* Menu de navegação */
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #a7c4ab;
+}
+
+/* Seções */
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
+#home {
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: center;
+    text-align: center;
+    padding-top: 80px; /* Espaço para não ficar colado no topo */
+}
+
+#sobre {
+    background: #f8f8f8;
+}
+
+#produtos {
+    background: #ffffff;
+}
+
+#contato {
+    background: #f8f8f8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu {
+        margin-top: 10px;
+    }
+
+    .menu li {
+        margin: 5px 0;
+    }
+}
