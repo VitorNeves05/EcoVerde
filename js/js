@@ -1,0 +1,33 @@
+let currentIndex = 0;
+
+function moveSlide(direction) {
+    const slides = document.querySelectorAll('.product-box');
+    const totalSlides = slides.length;
+    
+    // Calcula o novo índice
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    
+    // Ajusta a posição do container de produtos
+    const carouselContainer = document.querySelector('.carousel-container');
+    carouselContainer.style.transform = `translateX(-${currentIndex * (slides[0].offsetWidth + 30)}px)`;
+    
+    // Adiciona a classe "active" ao produto central
+    updateActiveClass(slides);
+}
+
+// Atualiza a classe "active" para o produto central
+function updateActiveClass(slides) {
+    slides.forEach((slide, index) => {
+        if (index === currentIndex) {
+            slide.classList.add('active');  // Produto no centro
+        } else {
+            slide.classList.remove('active');  // Outros produtos
+        }
+    });
+}
+
+// Inicializa a roleta ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.product-box');
+    updateActiveClass(slides);  // Inicializa o primeiro item como ativo
+});
