@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head>rodut
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco Verde | Marca</title>
@@ -8,6 +8,7 @@
     <script defer src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Space+Grotesk:wght@300..700&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 
@@ -20,8 +21,8 @@
         <nav>
             <ul class="menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -33,13 +34,38 @@
         </h1>
         <h2 class="subtitulo">Produtos ecológicos e sustentáveis</h2> <!-- Corrigido 'Class' para 'class' -->
 
-        <div class="video-container">
-            <video width="100%" autoplay loop muted>
-                <source src="videos/natural.mp4" type="video/mp4">
-                Seu navegador não suporta a tag de vídeo.
-            </video>
+        <img src="imagens/destaque.jpg" alt="Imagem destaque" class="imagem-destaque">
         </div>
     </section>
+
+    <section id="produtos">
+        <h2 class="titulo-produtos">Nossos Produtos</h2>
+        <div class="carousel">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-container">
+                <div class="product-box">
+                    <img src="imagens/escova.jpg" alt="escova de cabelo">
+                    <h3>escova de cabelo</h3>
+                    <p>R$ 49,99</p>
+                </div>
+                <div class="product-box">
+                    <img src="imagens/dente.jpg" alt="escova de dentes">
+                    <h3>escova de dentes</h3>
+                    <p>R$ 59,99</p>
+                </div>
+                <div class="product-box">
+                    <img src="imagens/creme.jpg" alt="creme facial">
+                    <h3>creme facial</h3>
+                    <p>R$ 69,99</p>
+                </div>
+                <div class="product-box">
+                    <img src="imagens/pincel.jpg" alt="Pinceis de Maquiagem">
+                    <h3>Pinceis de Maquiagem</h3>
+                    <p>R$ 79,99</p>
+                </div>
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
     </section>
 
     <section id="sobre">
@@ -60,45 +86,49 @@
     
             <!-- Texto sobre a marca -->
             <div class="texto-sobre">
-                <p>A EcoVerde nasceu do desejo de unir beleza e sustentabilidade. Fundada por João e Maria, dois apaixonads por cuidados naturais, a marca surgiu da ideia de criar produtos de beleza eficazes, feitos com ingredientes orgânicos e com o mínimo impacto ambiental. Em nossa jornada, buscamos oferecer o melhor da natureza, sem aditivos químicos, e respeitando o planeta em cada etapa.</p>
-                <p> A EcoVerde é mais que beleza – é um compromisso com um futuro mais consciente e sustentável.</p>
+                <p>A EcoVerde nasceu do desejo de unir beleza e sustentabilidade. Fundada por João e Maria, dois apaixonados por cuidados naturais, a marca surgiu da ideia de criar produtos de beleza eficazes, feitos com ingredientes orgânicos e com o mínimo impacto ambiental.
+
+                    Em nossa jornada, buscamos oferecer o melhor da natureza, sem aditivos químicos, respeitando o planeta em cada etapa.</p>
+                <p> A EcoVerde é mais do que beleza – é um compromisso com um futuro mais consciente e sustentável.</p>
             </div>
         </div>
     </section>
 
-    <section id="produtos">
-        <h2>Nossos Produtos</h2>
-        <div class="carousel">
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <div class="carousel-container">
-                <div class="product-box">
-                    <img src="imagem1.jpg" alt="Produto 1">
-                    <h3>Produto 1</h3>
-                    <p>R$ 49,99</p>
-                </div>
-                <div class="product-box">
-                    <img src="imagem2.jpg" alt="Produto 2">
-                    <h3>Produto 2</h3>
-                    <p>R$ 59,99</p>
-                </div>
-                <div class="product-box">
-                    <img src="imagem3.jpg" alt="Produto 3">
-                    <h3>Produto 3</h3>
-                    <p>R$ 69,99</p>
-                </div>
-                <div class="product-box">
-                    <img src="imagem4.jpg" alt="Produto 4">
-                    <h3>Produto 4</h3>
-                    <p>R$ 79,99</p>
-                </div>
-            </div>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-    </section>
 
     <section id="contato">
-        <h2>Fale Conosco</h2>
-        <p>Entre em contato para mais informações.</p>
+        <div class="contato-container">
+            <!-- Coluna de Contatos -->
+            <div class="contato-info">
+                <h2 class="titulo-contato">Entre em Contato</h2>
+                <a href="tel:+551198167-9734" class="contato-item">
+                    <i class="bi bi-whatsapp"></i> +55 11 98167-9734
+                </a>
+                <a href="mailto:email@exemplo.com" class="contato-item">
+                    <i class="bi bi-envelope"></i> econatural@gmail.com.br
+                </a>
+                <a href="https://www.instagram.com/seuperfil" target="_blank" class="contato-item">
+                    <i class="bi bi-instagram"></i> @Eco_Natural
+                </a>
+                <div class="logo-footer">
+                    <a href="#home">
+                        <img src="imagens/logo.png" alt="Logo da EcoStore">
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Coluna de Endereço com Mapa -->
+            <div class="contato-endereco">
+                <h2 class="titulo-contato">Nosso Endereço</h2>
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.930630636438!2d-46.79979022560961!3d-23.498472759889667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf023a55ad373b%3A0x2b9f62b59ff52e7c!2sR.%20Paulo%20Ant%C3%B4nio%20Camargo%2C%20128%20-%20Bussocaba%2C%20Osasco%20-%20SP%2C%2006056-180!5e0!3m2!1spt-BR!2sbr!4v1711748212123!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="250" 
+                    style="border:0; border-radius: 10px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
     </section>
 
     <script>

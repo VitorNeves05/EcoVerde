@@ -3,31 +3,49 @@ let currentIndex = 0;
 function moveSlide(direction) {
     const slides = document.querySelectorAll('.product-box');
     const totalSlides = slides.length;
-    
-    // Calcula o novo índice
-    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-    
-    // Ajusta a posição do container de produtos
-    const carouselContainer = document.querySelector('.carousel-container');
-    carouselContainer.style.transform = `translateX(-${currentIndex * (slides[0].offsetWidth + 30)}px)`;
-    
-    // Adiciona a classe "active" ao produto central
-    updateActiveClass(slides);
-}
+    const container = document.querySelector('.carousel-container');
 
-// Atualiza a classe "active" para o produto central
-function updateActiveClass(slides) {
+    // Atualiza o índice considerando a rotação
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+
+    // Adiciona a classe ativa ao item visível
     slides.forEach((slide, index) => {
+        slide.classList.remove('active');
         if (index === currentIndex) {
-            slide.classList.add('active');  // Produto no centro
-        } else {
-            slide.classList.remove('active');  // Outros produtos
+            slide.classList.add('active');
         }
     });
+
+    // Ajusta a posição do container
+    const offset = -(currentIndex * (slides[0].offsetWidth + 30));
+    container.style.transform = `translateX(${offset}px)`;
 }
 
-// Inicializa a roleta ao carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll('.product-box');
-    updateActiveClass(slides);  // Inicializa o primeiro item como ativo
+// Adiciona funcionalidade de zoom nas imagens dos produtos
+document.addEventListener("DOMContentLoaded", function () {
+    const productImages = document.querySelectorAll(".product-box img");
+
+    productImages.forEach(img => {
+        img.addEventListener("click", function () {
+            // Verifica se alguma outra imagem já está ampliada e remove o zoom
+            document.querySelectorAll(".product-box img.zoom").forEach(otherImg => {
+                if (otherImg !== this) {
+                    otherImg.classList.remove("zoom");
+                }
+            });
+
+            // Alterna o zoom na imagem clicada
+            this.classList.toggle("zoom");
+        });
+    });
+
+    // Fecha a imagem ampliada se clicar fora dela
+    document.addEventListener("click", function (event) {
+        if (!event.target.classList.contains("zoom") && !event.target.closest(".product-box")) {
+            document.querySelectorAll(".product-box img.zoom").forEach(img => {
+                img.classList.remove("zoom");
+            });
+        }
+    });
 });
+
